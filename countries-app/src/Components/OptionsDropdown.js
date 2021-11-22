@@ -1,21 +1,31 @@
 import React from 'react';
-import { countries } from '../countriesData';
 
-function OptionsDropdown() {
+function OptionsDropdown(props) {
   return (
-    <div>
-      <label for="ice-cream-choice">Choose a country:</label>
-      <input list="cuntries" id="ice-cream-choice" name="ice-cream-choice" />
+    <div id="options-dropdown">
+      <label>Choose a country:</label>
+      {/* <input
+        placeholder="show countries"
+        list="cuntries"
+        id="ice-cream-choice"
+        name="ice-cream-choice"
+      /> */}
 
-      <datalist id="cuntries">
-        {countries.map(contry => {
-          return (
-            <option key={contry.label} value={contry.label}>
-              {contry.code}, {contry.phone}
-            </option>
-          );
-        })}
-      </datalist>
+      <ul id="cuntries">
+        {props.countries.map(contry => (
+          <li
+            key={contry.label}
+            value={contry.label}
+            onClick={props.chooseCountry}
+          >
+            <img
+              alt="fleg"
+              src={`https://flagcdn.com/16x12/${contry.code.toLowerCase()}.png`}
+            />
+            {contry.label}, {contry.code}, {contry.phone}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

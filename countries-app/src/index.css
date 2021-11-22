@@ -6,4 +6,51 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: antiquewhite;
+}
+
+#divapp {
+  background-color: azure;
+  margin-top: 2em;
+}
+
+#search-bar {
+  margin: 1em;
+}
+
+input:focus {
+  /* removing the input focus blue box. Put this on the form if you like. */
+  outline: none;
+}
+
+button {
+  /* Just a little styling to make it pretty */
+  border: 2px solid rgb(0, 0, 0);
+  background: rgb(68, 68, 219);
+  color: white;
+}
+
+.flexContainer {
+  display: flex;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 2px solid black;
+}
+
+.inputField {
+  flex: 1;
+}
+
+#cuntries {
+  padding: 0;
+  margin-left: 25%;
+  width: 350px;
+  height: 250px;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  list-style-type: none;
+  border: 2px solid black;
+  font-size: 14px;
 }
