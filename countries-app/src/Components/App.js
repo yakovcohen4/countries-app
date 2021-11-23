@@ -10,14 +10,18 @@ import OptionsDropdown from './OptionsDropdown';
 function App() {
   const [countriesArr, setCountry] = useState(countries);
   const [SerachBarString, setSerachBar] = useState('');
+  const [pickCountry, setPickCountry] = useState('');
 
   const changeSerachBarString = str => {
     setSerachBar(str);
-    // setCountry(str);
+    setPickCountry(str);
   };
 
   function chooseCountry(e) {
-    console.log('yes');
+    const countryName = e.target.id;
+    console.log(countryName);
+    setSerachBar(countryName);
+    setPickCountry(countryName);
   }
 
   function filterCountries(str) {
@@ -31,7 +35,10 @@ function App() {
   return (
     <div id="divapp">
       <h2>Which country do you want to call?</h2>
-      <SerachBar onStringChange={changeSerachBarString} />
+      <SerachBar
+        onStringChange={changeSerachBarString}
+        pickCountry={pickCountry}
+      />
       {/* <Option /> */}
       <OptionsDropdown
         countries={filterCountries(SerachBarString)}

@@ -1,7 +1,15 @@
 import React from 'react';
 
-function ClearButton() {
-  return <button>clear</button>;
+function ClearButton(props) {
+  return (
+    <button
+      onClick={() => {
+        props.clear('');
+      }}
+    >
+      clear
+    </button>
+  );
 }
 
 export default ClearButton;

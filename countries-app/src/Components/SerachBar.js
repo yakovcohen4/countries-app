@@ -12,24 +12,26 @@ function SerachBar(props) {
   //   // console.log(country.current);
   // }, [country]);
 
+  function clear(name) {
+    return (name = '');
+  }
+
   return (
     <div id="search-bar">
       <input
-        // value=" "
         ref={country}
         // onChange={this.useEffect}
         type="text"
+        value={props.pickCountry.toLowerCase()}
         className="inputField"
         placeholder="click to show countries"
         onChange={() => {
           props.onStringChange(
             country.current.value ? country.current.value : ''
           );
-          // props.chooseCountry();
         }}
       />
-      {/* <p>{country.current.value}</p> */}
-      <ClearButton />
+      <ClearButton clear={props.onStringChange} />
     </div>
   );
 }
